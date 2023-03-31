@@ -1,6 +1,5 @@
 package StepDefinitions;
 
-import Enums.Tabs;
 import PageObjects.HomePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -11,13 +10,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class BisTabSteps {
+public class AllTabsSteps {
 
     WebDriver driver;
     ChromeOptions options;
     HomePage home;
-
-    private final String targetTab = String.valueOf(Tabs.TELEPHONE);
+    private String targetTab;
 
     @Given("the browser is open")
     public void theBrowserIsOpen() {
@@ -31,23 +29,24 @@ public class BisTabSteps {
         driver = new ChromeDriver(options);
 
     }
-    @And("the user is on the home page")
-    public void theUserIsOnTheHomePage() {
+    @And("^the user is on the home page in search of a \"(.*)\"$")
+    public void theUserIsOnTheHomePage(String tabName) {
 
         home = new HomePage(driver);
         driver.get("https://d2r3v7evrrggno.cloudfront.net/");
+        targetTab = tabName;
+        home.setUpScrollEventListener();
 
     }
 
-    @And("the user scrolls to the bis tab")
+    @And("the user scrolls to the tab")
     public void theUserScrolsToTheBisTab() {
 
         home.scrollToTabHeader(targetTab);
 
     }
 
-
-    @When("the user clicks on the bis tab")
+    @When("the user clicks on the tab")
     public void theUserClicksOnTheBisTab() {
 
         home.clickTab(targetTab);
@@ -68,13 +67,6 @@ public class BisTabSteps {
 
     }
 
-    @And("the user fills in data")
-    public void theUserFillsInData(){
-
-        System.out.println("Implementing...");
-
-    }
-
     @And("the user clicks on generate")
     public void theUserClicksOnGenerate() throws InterruptedException {
 
@@ -82,7 +74,7 @@ public class BisTabSteps {
 
     }
 
-    @Then("the results are shown")
+    @Then("the results element is visible")
     public void theResultsAreShown() {
 
         System.out.println("Implementing...");

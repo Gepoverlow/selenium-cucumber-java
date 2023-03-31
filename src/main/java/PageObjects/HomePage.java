@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -16,9 +17,9 @@ public class HomePage {
     JavascriptExecutor jse;
     WebDriverWait wait;
     By searchInput = By.id("search");
-    By infoBtn = By.linkText("Generator information");
-    By goUpBtn = By.id("go-up");
-    By footerDotsBtn = By.id("footer-dots");
+    By infoButton = By.linkText("Generator information");
+    By goUpButton = By.id("go-up");
+    By footerDotsButton = By.id("footer-dots");
 
 
     public HomePage(WebDriver driver){
@@ -31,20 +32,15 @@ public class HomePage {
 
     public void clickTab(String tabName) {
 
-        WebElement headerButton = getTabHeaderButton(tabName);
-        WebElement generateButton = getTabGenerateButton(tabName);
-
-        clickWithJavascript(headerButton);
-
-        wait.until(ExpectedConditions.elementToBeClickable(generateButton));
+        clickWithJavascript(getTabHeaderButton(tabName));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("/" + tabName + "-generate-button")));
 
     }
 
+
     public void scrollToTabHeader(String tabName) {
 
-        WebElement headerButton = getTabHeaderButton(tabName);
-
-        scrollElementIntoView(headerButton);
+        scrollElementIntoView(getTabHeaderButton(tabName));
 
     }
 
@@ -61,9 +57,10 @@ public class HomePage {
     }
 
 
-    public void scrollElementIntoView(WebElement element){
+    public void scrollElementIntoView(WebElement element) {
 
         jse.executeScript("arguments[0].scrollIntoView(true);", element);
+        waitForJavascriptToFinishScrolling();
 
     }
 
@@ -73,13 +70,33 @@ public class HomePage {
 
     }
 
-    public void clickGenerateButton(String tabName) throws InterruptedException {
+    public void clickGenerateButton(String tabName) {
 
-        WebElement generateButton = getTabGenerateButton(tabName);
-        generateButton.click();
-
-        Thread.sleep(5000);
+        wait.until(ExpectedConditions.elementToBeClickable(getTabGenerateButton(tabName))).click();
 
     }
 
+    public void setUpScrollEventListener(){
+
+        jse.executeScript("""
+                var scrollTimeout;
+                window.isScrolling = false;
+                addEventListener('scroll', function(e) {
+                    window.isScrolling = true;
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(function() {
+                        window.isScrolling = false;
+                    }, 100);
+                });
+                """);
+
+    }
+
+    public void waitForJavascriptToFinishScrolling() {
+        wait.until(new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver d) {
+                return (Boolean) jse.executeScript("return window.isScrolling === false");
+            }
+        });
+    }
 }
