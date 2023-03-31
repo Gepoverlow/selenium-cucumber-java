@@ -42,7 +42,7 @@ public class BisTabSteps {
     @And("the user scrolls to the bis tab")
     public void theUserScrolsToTheBisTab() {
 
-        home.scrollToTab(targetTab);
+        home.scrollToTabHeader(targetTab);
 
     }
 
@@ -64,7 +64,7 @@ public class BisTabSteps {
     @And("the tab is centered")
     public void theTabIsCentered() {
 
-        home.scrollToTab(targetTab);
+        home.scrollToTabHeader(targetTab);
 
     }
 

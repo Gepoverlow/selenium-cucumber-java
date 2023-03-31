@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,8 +31,8 @@ public class HomePage {
 
     public void clickTab(String tabName) {
 
-        WebElement headerButton = getAccordionItemHeaderButton(tabName);
-        WebElement generateButton = getAccordionItemGenerateButton(tabName);
+        WebElement headerButton = getTabHeaderButton(tabName);
+        WebElement generateButton = getTabGenerateButton(tabName);
 
         clickWithJavascript(headerButton);
 
@@ -41,21 +40,21 @@ public class HomePage {
 
     }
 
-    public void scrollToTab(String tabName) {
+    public void scrollToTabHeader(String tabName) {
 
-        WebElement headerButton = getAccordionItemHeaderButton(tabName);
+        WebElement headerButton = getTabHeaderButton(tabName);
 
         scrollElementIntoView(headerButton);
 
     }
 
-    public WebElement getAccordionItemHeaderButton(String tabName){
+    public WebElement getTabHeaderButton(String tabName){
 
         return driver.findElement(By.id("/" + tabName + "-header-button"));
 
     }
 
-    public WebElement getAccordionItemGenerateButton(String tabName){
+    public WebElement getTabGenerateButton(String tabName){
 
         return driver.findElement(By.id("/" + tabName + "-generate-button"));
 
@@ -76,7 +75,7 @@ public class HomePage {
 
     public void clickGenerateButton(String tabName) throws InterruptedException {
 
-        WebElement generateButton = getAccordionItemGenerateButton(tabName);
+        WebElement generateButton = getTabGenerateButton(tabName);
         generateButton.click();
 
         Thread.sleep(5000);
