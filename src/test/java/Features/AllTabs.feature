@@ -4,8 +4,8 @@ Feature: Test that all tabs from home page can open and generate data
 
     Given the browser is open
     And the user is on the home page in search of a "<tab>"
-    And the user scrolls to the tab
-    When the user clicks on the tab
+    And the user scrolls to the tab header
+    When the user clicks on the tab header
     And the tab opens to show details
     And the tab is centered
     And the user clicks on generate

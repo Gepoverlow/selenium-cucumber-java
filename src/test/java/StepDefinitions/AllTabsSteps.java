@@ -34,22 +34,23 @@ public class AllTabsSteps {
 
         home = new HomePage(driver);
         driver.get("https://d2r3v7evrrggno.cloudfront.net/");
+
         targetTab = tabName;
         home.setUpScrollEventListener();
 
     }
 
-    @And("the user scrolls to the tab")
-    public void theUserScrolsToTheBisTab() {
+    @And("the user scrolls to the tab header")
+    public void theUserScrollsToTheTabHeader() {
 
         home.scrollToTabHeader(targetTab);
 
     }
 
-    @When("the user clicks on the tab")
-    public void theUserClicksOnTheBisTab() {
+    @When("the user clicks on the tab header")
+    public void theUserClicksOnTheTabHeader() {
 
-        home.clickTab(targetTab);
+        home.clickTabHeader(targetTab);
 
     }
 
@@ -63,12 +64,12 @@ public class AllTabsSteps {
     @And("the tab is centered")
     public void theTabIsCentered() {
 
-        home.scrollToTabHeader(targetTab);
+        home.scrollToCenterTabBody(targetTab);
 
     }
 
     @And("the user clicks on generate")
-    public void theUserClicksOnGenerate() throws InterruptedException {
+    public void theUserClicksOnGenerate() {
 
         home.clickGenerateButton(targetTab);
 
