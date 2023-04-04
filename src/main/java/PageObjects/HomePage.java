@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-
 public class HomePage {
 
     WebDriver driver;
@@ -63,6 +62,24 @@ public class HomePage {
 
     }
 
+    public WebElement getTabResultElement(String tabName){
+
+        return driver.findElement(By.id(tabName + "-text"));
+
+    }
+
+    public WebElement getSpecificFormElement(String tabName, String inputId) {
+
+        return driver.findElement(By.id(tabName + "-" + inputId));
+
+    }
+
+    public void clickSpecificFormElement(String tabName, String inputId) {
+
+        getSpecificFormElement(tabName, inputId).click();
+
+    }
+
     public void clickTabHeader(String tabName) {
 
         clickElementWithJavascript(getTabHeaderElement(tabName));
@@ -86,7 +103,7 @@ public class HomePage {
     public void clickGenerateButton(String tabName) {
 
         wait.until(ExpectedConditions.elementToBeClickable(getTabGenerateElement(tabName))).click();
-
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(tabName + "-text")));
     }
 
     public void scrollToElementWithJavascript(WebElement element) {
@@ -99,6 +116,24 @@ public class HomePage {
     public void clickElementWithJavascript(WebElement element) {
 
         jse.executeScript("arguments[0].click()", element);
+
+    }
+
+    public Boolean isTabBodyVisible(String tabName){
+
+        return isElementVisible(getTabBodyElement(tabName));
+
+    }
+
+    public Boolean isResultVisible(String tabName){
+
+        return isElementVisible(getTabResultElement(tabName));
+
+    }
+
+    public Boolean isElementVisible(WebElement element){
+
+        return element.isDisplayed();
 
     }
 

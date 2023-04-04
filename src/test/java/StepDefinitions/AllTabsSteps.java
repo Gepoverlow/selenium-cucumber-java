@@ -9,6 +9,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.Assert;
 
 public class AllTabsSteps {
 
@@ -29,7 +30,7 @@ public class AllTabsSteps {
         driver = new ChromeDriver(options);
 
     }
-    @And("^the user is on the home page in search of a \"(.*)\"$")
+    @And("^the user is on the home page in search of \"(.*)\"$")
     public void theUserIsOnTheHomePage(String tabName) {
 
         home = new HomePage(driver);
@@ -57,7 +58,7 @@ public class AllTabsSteps {
     @And("the tab opens to show details")
     public void theTabOpensToShowDetails(){
 
-        System.out.println("implementing...");
+       Assert.assertTrue(home.isTabBodyVisible(targetTab));
 
     }
 
@@ -78,7 +79,8 @@ public class AllTabsSteps {
     @Then("the results element is visible")
     public void theResultsAreShown() {
 
-        System.out.println("Implementing...");
+        Assert.assertTrue(home.isResultVisible(targetTab));
+
         driver.close();
         driver.quit();
 
