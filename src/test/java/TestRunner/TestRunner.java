@@ -12,6 +12,8 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json"
         }
+        //tags = "@uuid"
+
 )
 public class TestRunner {
 
