@@ -33,8 +33,11 @@ public class ContextSteps {
 
     @After
     public void tearDown(){
+
+        System.out.println("Tearing down...");
         driver.close();
         driver.quit();
+
     }
 
     public WebDriver getDriver(){
