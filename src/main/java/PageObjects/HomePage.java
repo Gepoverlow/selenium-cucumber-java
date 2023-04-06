@@ -1,20 +1,20 @@
 package PageObjects;
 
-import PageFragments.BisPageFragment;
-import PageFragments.UuidPageFragment;
+import PageFragments.BisTabFragment;
+import PageFragments.UuidTabFragment;
 import org.openqa.selenium.WebDriver;
 
 
 public class HomePage {
 
-    public BisPageFragment bis;
-    public UuidPageFragment uuid;
+    public BisTabFragment bis;
+    public UuidTabFragment uuid;
 
 
     public HomePage(WebDriver driver){
 
-        this.bis = new BisPageFragment(driver);
-        this.uuid = new UuidPageFragment(driver);
+        this.bis = new BisTabFragment(driver);
+        this.uuid = new UuidTabFragment(driver);
 
     }
 
