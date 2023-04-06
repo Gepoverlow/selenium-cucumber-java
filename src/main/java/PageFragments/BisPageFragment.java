@@ -14,6 +14,8 @@ public class BisPageFragment {
     By tabBodyDiv = By.id("collapse-0");
     By generateButton = By.id("/bis-generate-button");
 
+    By resultPre = By.id("bis-text");
+
     public BisPageFragment(WebDriver driver){
 
         this.driver = driver;
@@ -48,6 +50,18 @@ public class BisPageFragment {
 
         driver.findElement(generateButton).click();
         Thread.sleep(1000);
+
+    }
+
+    public Boolean isTabBodyDisplayed(){
+
+        return driver.findElement(tabBodyDiv).isDisplayed();
+
+    }
+
+    public Boolean isResultDisplayed(){
+
+        return driver.findElement(resultPre).isDisplayed();
 
     }
 

@@ -3,6 +3,7 @@ package StepDefinitions;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class BisSteps {
 
@@ -28,7 +29,7 @@ public class BisSteps {
     @And("the bis form opens")
     public void the_bis_form_opens() {
 
-        System.out.println("Implementing...");
+        Assert.assertTrue(contextSteps.getHome().bis.isTabBodyDisplayed());
 
     }
 
@@ -58,7 +59,7 @@ public class BisSteps {
     @Then("the bis result is visible")
     public void the_bis_result_is_visible(){
 
-        System.out.println("Implementing...");
+        Assert.assertTrue(contextSteps.getHome().bis.isResultDisplayed());
 
     }
 
