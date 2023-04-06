@@ -1,21 +1,27 @@
 package StepDefinitions;
 
+import PageObjects.HomePage;
+import Utilities.TestContext;
 import io.cucumber.java.en.Given;
+import org.testng.Assert;
 
 public class BackgroundSteps {
 
-    private ContextSteps contextSteps;
+    TestContext testContext;
+    HomePage homePage;
 
-    public BackgroundSteps(ContextSteps contextSteps){
+    public BackgroundSteps(TestContext context){
 
-        this.contextSteps = contextSteps;
+        testContext = context;
+        homePage = testContext.getPageObjectManager().getHomePage();
 
     }
 
     @Given("the user is on the home page")
     public void the_user_is_on_the_home_page(){
 
-        contextSteps.getDriver().get("https://d2r3v7evrrggno.cloudfront.net/");
+        Assert.assertTrue(homePage.nav.isNavBarDisplayed());
+        Assert.assertTrue(homePage.title.isTitleDisplayed());
 
     }
 

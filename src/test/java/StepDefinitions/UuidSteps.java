@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import PageObjects.HomePage;
+import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -8,31 +9,31 @@ import org.testng.Assert;
 
 public class UuidSteps {
 
-    ContextSteps contextSteps;
-    HomePage home;
+    TestContext testContext;
+    HomePage homePage;
 
-    public UuidSteps(ContextSteps context){
+    public UuidSteps(TestContext context){
 
-        contextSteps = context;
-        home = contextSteps.getHome();
+        testContext = context;
+        homePage = testContext.getPageObjectManager().getHomePage();
 
     }
     @And("the user scrolls to the uuid tab")
     public void the_user_scrolls_to_the_uuid_tab() throws InterruptedException {
 
-        home.uuid.scrollToTabHeader(home.uuid.getHeaderButton());
+        homePage.uuid.scrollToTabHeader(homePage.uuid.getHeaderButton());
 
     }
     @And("the user clicks on the uuid header button")
     public void the_user_clicks_on_the_uuid_header_button() throws InterruptedException {
 
-        home.uuid.clickTabHeader(home.uuid.getHeaderButton());
+        homePage.uuid.clickTabHeader(homePage.uuid.getHeaderButton());
 
     }
     @And("the uuid form opens")
     public void the_uuid_form_opens() {
 
-        Assert.assertTrue(home.uuid.isElementDisplayed(home.uuid.getTabBodyDiv()));
+        Assert.assertTrue(homePage.uuid.isElementDisplayed(homePage.uuid.getTabBodyDiv()));
 
     }
 
@@ -40,7 +41,7 @@ public class UuidSteps {
     @And("the uuid tab body is centered")
     public void the_uuid_tab_is_centered() throws InterruptedException {
 
-        home.uuid.scrollToCenterTabBody(home.uuid.getTabBodyDiv());
+        homePage.uuid.scrollToCenterTabBody(homePage.uuid.getTabBodyDiv());
 
     }
 
@@ -55,14 +56,14 @@ public class UuidSteps {
     @When("the user clicks on the generate uuid button")
     public void the_user_clicks_on_the_generate_uuid_button() throws InterruptedException {
 
-        home.uuid.clickGenerateButton(home.uuid.getGenerateButton());
+        homePage.uuid.clickGenerateButton(homePage.uuid.getGenerateButton());
 
     }
 
     @Then("the uuid result is visible")
     public void the_uuid_result_is_visible(){
 
-        Assert.assertTrue(home.uuid.isElementDisplayed(home.uuid.getResultPre()));
+        Assert.assertTrue(homePage.uuid.isElementDisplayed(homePage.uuid.getResultPre()));
 
     }
 

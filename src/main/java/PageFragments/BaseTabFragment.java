@@ -6,13 +6,13 @@ import org.openqa.selenium.WebElement;
 
 public class BaseTabFragment {
 
-    protected WebDriver driver;
-    protected JavascriptExecutor jse;
+    WebDriver webDriver;
+    JavascriptExecutor jse;
 
     public BaseTabFragment(WebDriver driver){
 
-        this.driver = driver;
-        this.jse = (JavascriptExecutor)driver;
+        webDriver = driver;
+        jse = (JavascriptExecutor) webDriver;
 
     }
 

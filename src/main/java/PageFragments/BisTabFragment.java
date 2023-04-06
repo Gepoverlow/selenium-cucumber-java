@@ -19,25 +19,25 @@ public class BisTabFragment extends BaseTabFragment {
 
     public WebElement getHeaderButton(){
 
-        return driver.findElement(headerButton);
+        return webDriver.findElement(headerButton);
 
     }
 
     public WebElement getTabBodyDiv(){
 
-        return driver.findElement(tabBodyDiv);
+        return webDriver.findElement(tabBodyDiv);
 
     }
 
     public WebElement getGenerateButton(){
 
-        return driver.findElement(generateButton);
+        return webDriver.findElement(generateButton);
 
     }
 
     public WebElement getResultPre(){
 
-        return driver.findElement(resultPre);
+        return webDriver.findElement(resultPre);
 
     }
 
