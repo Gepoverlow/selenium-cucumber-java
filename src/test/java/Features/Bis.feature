@@ -6,20 +6,14 @@ Feature: Test the BIS generator functionality
 
   Scenario: Validate that it generates data without filling the form
 
-    And the user scrolls to the bis tab
-    And the user clicks on the bis header button
-    And the bis form opens
-    And the bis tab body is centered
+    And the user opens the bis tab
     When the user clicks on the generate bis button
-    Then the bis result is visible
+    Then the bis data result is visible
 
 
   Scenario: Validate that it generated data with filling the form
 
-    And the user scrolls to the bis tab
-    And the user clicks on the bis header button
-    And the bis form opens
-    And the bis tab body is centered
-    And the user fills in the bis form
+    And the user opens the bis tab
+    And the user fills in the fields needed to generate bis data
     When the user clicks on the generate bis button
-    Then the bis result is visible
+    Then the bis data result is visible

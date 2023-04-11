@@ -23,7 +23,7 @@ public class Hooks {
     @Before
     public void setUp(){
 
-        webDriver = testContext.getDriverManager().getDriver();
+        webDriver = testContext.getDriver();
         webDriver.get(FileReaderManager.getInstance().getConfigFileReader().getUrl());
 
     }
@@ -31,7 +31,7 @@ public class Hooks {
     @After
     public void tearDown(){
 
-        testContext.getDriverManager().closeDriver();
+        testContext.closeDriver();
 
     }
 

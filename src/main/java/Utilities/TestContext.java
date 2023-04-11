@@ -2,6 +2,8 @@ package Utilities;
 
 import Managers.DriverManager;
 import Managers.PageObjectManager;
+import PageObjects.HomePage;
+import org.openqa.selenium.WebDriver;
 
 public class TestContext {
 
@@ -11,19 +13,28 @@ public class TestContext {
     public TestContext() {
 
         driverManager = new DriverManager();
-        pageObjectManager = new PageObjectManager(driverManager.getDriver());
+        pageObjectManager = new PageObjectManager();
 
     }
 
-    public DriverManager getDriverManager() {
+    public HomePage getHomePage(){
 
-        return driverManager;
+        if (pageObjectManager.getHomePage() == null) pageObjectManager.setHomePage(new HomePage(driverManager.getWebDriver()));
+        return pageObjectManager.getHomePage();
 
     }
 
-    public PageObjectManager getPageObjectManager(){
+    public WebDriver getDriver(){
 
-        return pageObjectManager;
+        if (driverManager.getWebDriver() == null) driverManager.setWebDriver(driverManager.createDriver());
+        return driverManager.getWebDriver();
+
+    }
+
+    public void closeDriver(){
+
+        driverManager.getWebDriver().close();
+        driverManager.getWebDriver().quit();
 
     }
 

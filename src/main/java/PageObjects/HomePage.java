@@ -24,4 +24,28 @@ public class HomePage {
 
     }
 
+    public void openBisTab(){
+
+        System.out.println("the user opens the bis tab");
+
+    }
+
+    public void fillInBisFields(){
+
+        System.out.println("the user fills in the fields needed to generate bis data");
+
+    }
+
+    public void clickGenerateBisButton(){
+
+        System.out.println("the user clicks on the generate bis button");
+
+    }
+
+    public void verifyResultIsVisible(){
+
+        System.out.println("the user clicks on the generate bis button");
+
+    }
+
 }

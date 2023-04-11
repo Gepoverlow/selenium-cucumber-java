@@ -6,20 +6,14 @@ Feature: Test the UUID generator functionality
 
   Scenario: Validate that it generates data without filling the form
 
-    And the user scrolls to the uuid tab
-    And the user clicks on the uuid header button
-    And the uuid form opens
-    And the uuid tab body is centered
+    And the user opens the uuid tab
     When the user clicks on the generate uuid button
-    Then the uuid result is visible
+    Then the uuid data result is visible
 
 
   Scenario: Validate that it generated data with filling the form
 
-    And the user scrolls to the uuid tab
-    And the user clicks on the uuid header button
-    And the uuid form opens
-    And the uuid tab body is centered
-    And the user fills in the uuid form
+    And the user opens the uuid tab
+    And the user fills in the fields needed to generate uuid data
     When the user clicks on the generate uuid button
-    Then the uuid result is visible
+    Then the uuid data result is visible

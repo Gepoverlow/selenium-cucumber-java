@@ -13,7 +13,7 @@ public class BackgroundSteps {
     public BackgroundSteps(TestContext context){
 
         testContext = context;
-        homePage = testContext.getPageObjectManager().getHomePage();
+        homePage = testContext.getHomePage();
 
     }
 

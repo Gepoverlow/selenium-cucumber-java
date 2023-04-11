@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.safari.SafariDriver;
-import java.util.concurrent.TimeUnit;
 
 public class DriverManager {
 
@@ -21,7 +20,7 @@ public class DriverManager {
 
     }
 
-    private WebDriver createDriver() {
+    public WebDriver createDriver() {
         switch (driverType) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
@@ -39,26 +38,20 @@ public class DriverManager {
                 webDriver = new SafariDriver();
                 break;
         }
-        long time = FileReaderManager.getInstance().getConfigFileReader().getTime();
 
-        webDriver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().pageLoadTimeout(time, TimeUnit.SECONDS);
-        webDriver.manage().timeouts().setScriptTimeout(time, TimeUnit.SECONDS);
         return webDriver;
 
     }
 
-    public WebDriver getDriver() {
+    public WebDriver getWebDriver() {
 
-        if (webDriver == null) webDriver = createDriver();
         return webDriver;
 
     }
 
-    public void closeDriver() {
+    public void setWebDriver(WebDriver newWebDriver){
 
-        webDriver.close();
-        webDriver.quit();
+        webDriver = newWebDriver;
 
     }
 
