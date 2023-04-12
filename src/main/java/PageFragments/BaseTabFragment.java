@@ -1,46 +1,43 @@
 package PageFragments;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BaseTabFragment {
 
     WebDriver webDriver;
-    JavascriptExecutor jse;
+    Actions actions;
+    WebDriverWait wait;
+
 
     public BaseTabFragment(WebDriver driver){
 
         webDriver = driver;
-        jse = (JavascriptExecutor) webDriver;
+        actions = new Actions(driver);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
     }
 
-    public void scrollToTabHeader(WebElement tabHeader) throws InterruptedException {
+    public void scrollToElement(WebElement element){
 
-        jse.executeScript("arguments[0].scrollIntoView(true);", tabHeader);
-        Thread.sleep(500);
-
-    }
-
-    public void clickTabHeader(WebElement tabHeader) throws InterruptedException {
-
-        tabHeader.click();
-        Thread.sleep(1000);
+        int deltaY = element.getRect().y;
+        actions.scrollByAmount(0, deltaY).perform();
 
     }
 
-    public void scrollToCenterTabBody(WebElement tabBody) throws InterruptedException {
+    public void moveToElement(WebElement element) {
 
-        jse.executeScript("arguments[0].scrollIntoView(true);", tabBody);
-        Thread.sleep(500);
+        actions.moveToElement(element).perform();
 
     }
 
-    public void clickGenerateButton(WebElement generateButton) throws InterruptedException {
+    public void clickElement(WebElement element) {
 
-        generateButton.click();
-        Thread.sleep(1000);
+        element.click();
 
     }
 

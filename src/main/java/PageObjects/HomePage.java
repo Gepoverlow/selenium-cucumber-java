@@ -1,9 +1,6 @@
 package PageObjects;
 
-import PageFragments.BisTabFragment;
-import PageFragments.NavBarFragment;
-import PageFragments.TitleFragment;
-import PageFragments.UuidTabFragment;
+import PageFragments.*;
 import org.openqa.selenium.WebDriver;
 
 
@@ -12,6 +9,7 @@ public class HomePage {
     public NavBarFragment nav;
     public TitleFragment title;
     public BisTabFragment bis;
+    public PlatesTabFragment plates;
     public UuidTabFragment uuid;
 
 
@@ -20,32 +18,34 @@ public class HomePage {
         nav = new NavBarFragment(driver);
         title = new TitleFragment(driver);
         bis = new BisTabFragment(driver);
+        plates = new PlatesTabFragment(driver);
         uuid = new UuidTabFragment(driver);
 
     }
 
-    public void openBisTab(){
+    public BisTabFragment openBisTab() {
 
-        System.out.println("the user opens the bis tab");
+        bis.openTab();
 
-    }
-
-    public void fillInBisFields(){
-
-        System.out.println("the user fills in the fields needed to generate bis data");
+        return bis;
 
     }
 
-    public void clickGenerateBisButton(){
+    public UuidTabFragment openUuidTab() {
 
-        System.out.println("the user clicks on the generate bis button");
+        uuid.openTab();
+
+        return uuid;
+
+    }
+
+    public PlatesTabFragment openPlatesTab() {
+
+        plates.openTab();
+
+        return plates;
 
     }
 
-    public void verifyResultIsVisible(){
-
-        System.out.println("the user clicks on the generate bis button");
-
-    }
 
 }

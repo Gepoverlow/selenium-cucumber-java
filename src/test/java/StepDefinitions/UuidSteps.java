@@ -1,16 +1,18 @@
 package StepDefinitions;
 
+import PageFragments.UuidTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
 
 public class UuidSteps {
 
     TestContext testContext;
     HomePage homePage;
+
+    UuidTabFragment uuidTabFragment;
 
     public UuidSteps(TestContext context){
 
@@ -21,27 +23,27 @@ public class UuidSteps {
     @And("the user opens the uuid tab")
     public void theUserOpensTheUuidTab() {
 
-        System.out.println("the user opens the uuid tab");
+        uuidTabFragment = homePage.openUuidTab();
 
     }
 
     @And("the user fills in the fields needed to generate uuid data")
     public void theUserFillsInTheFieldsNeededToGenerateUuidData() {
 
-        System.out.println("the user fills in the fields needed to generate uuid data");
+        System.out.println("Implementing...");
 
     }
 
     @When("the user clicks on the generate uuid button")
     public void theUserClicksOnTheGenerateUuidButton() {
 
-        System.out.println("the user clicks on the generate uuid button");
+        System.out.println("Implementing...");
 
     }
     @Then("the uuid data result is visible")
     public void theUuidDataResultIsVisible() {
 
-        System.out.println("The uuid data result is visible");
+        System.out.println("Implementing...");
 
     }
 

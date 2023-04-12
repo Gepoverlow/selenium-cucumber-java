@@ -5,16 +5,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class UuidTabFragment extends BaseTabFragment {
+public class PlatesTabFragment extends BaseTabFragment {
 
-    By headerButton = By.id("/uuid-header-button");
-    By tabBodyDiv = By.id("collapse-9");
-    By versionInput = By.id("/uuid-0");
-    By generateButton = By.id("/uuid-generate-button");
-    By resultPre = By.id("uuid-text");
+    By headerButton = By.id("/plates-header-button");
+    By tabBodyDiv = By.id("collapse-5");
+    By selectMenuInput = By.id("/plates-0");
+    By generateButton = By.id("/plates-generate-button");
+    By resultPre = By.id("plates-text");
 
 
-    public UuidTabFragment(WebDriver driver){
+    public PlatesTabFragment(WebDriver driver){
 
         super(driver);
 
@@ -32,9 +32,9 @@ public class UuidTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getVersionInput(){
+    public WebElement getSelectMenuInput(){
 
-        return webDriver.findElement(versionInput);
+        return webDriver.findElement(selectMenuInput);
 
     }
 
@@ -58,7 +58,7 @@ public class UuidTabFragment extends BaseTabFragment {
         clickElement(headerButton);
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
-        scrollToElement(getVersionInput());
+        scrollToElement(getSelectMenuInput());
 
         try{
             Thread.sleep(2000);
