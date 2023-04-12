@@ -60,12 +60,6 @@ public class PlatesTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         scrollToElement(getSelectMenuInput());
 
-        try{
-            Thread.sleep(2000);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-
     }
 
 }
