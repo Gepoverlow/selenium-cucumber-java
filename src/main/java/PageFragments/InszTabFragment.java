@@ -53,12 +53,10 @@ public class InszTabFragment extends BaseTabFragment {
 
         WebElement tabHeaderButton = getTabHeaderButton();
 
-        scrollToFooter();
-        clickElement(tabHeaderButton);
+        openTabFromElement(tabHeaderButton);
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
-        scrollToFooter();
-        //clickElement(getGenderNoInput());
+        centerTabFromElement(tabHeaderButton);
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
 

@@ -24,7 +24,21 @@ public class BaseTabFragment {
 
     }
 
-    public void scrollToElement(WebElement element){
+    public void openTabFromElement(WebElement element){
+
+        scrollToElement(element);
+        clickElement(element);
+
+    }
+
+    public void centerTabFromElement(WebElement element){
+
+        scrollToTheTopFromElement(element);
+        scrollToElement(element);
+
+    }
+
+    private void scrollToElement(WebElement element){
 
         //Doesnt work... Throws MoveTargetOutOfBoundsException: WHY??
         //actions.scrollToElement(element).perform();
@@ -34,20 +48,16 @@ public class BaseTabFragment {
 
     }
 
-    public void scrollToFooter(){
+    private void scrollToTheTopFromElement(WebElement element){
 
-        //Doesnt work... Throws MoveTargetOutOfBoundsException: WHY??
-        //actions.scrollToElement(webDriver.findElement(By.id("footer"))).perform();
-
-        int deltaY = webDriver.findElement(By.id("footer")).getRect().y;
-        actions.scrollByAmount(0, deltaY).perform();
+        int deltaY = element.getRect().y;
+        actions.scrollByAmount(0, -deltaY).perform();
 
     }
 
-    public void clickElement(WebElement element) {
+    private void clickElement(WebElement element) {
 
         // If element is out of the viewport, it will throw ElementClickInterceptedException
-        System.out.println(element.getLocation());
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
 
     }
