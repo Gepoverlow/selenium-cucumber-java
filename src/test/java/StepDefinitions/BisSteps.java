@@ -35,7 +35,7 @@ public class BisSteps {
     }
 
     @And("the user types {string} into the date input and {string} into the amount input bis fields")
-    public void theUserFillsInTheFieldsNeededToGenerateBisData(String date, String amount) {
+    public void theUserTypesIntoInputs(String date, String amount) {
 
         bisTabFragment.typeInputs(date, amount);
 

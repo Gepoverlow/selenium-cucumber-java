@@ -33,7 +33,7 @@ Feature: Test the BIS generator functionality
     Then the bis data result is visible
     Examples:
       | date       | amount |
-      | notadate   | -1     |
+      | notadate   | 0      |
       | &&&&&&&    | @@@    |
       | 12         | hello  |
-      | 00/00/000  |        |
+      | 00/00/000  | -1     |

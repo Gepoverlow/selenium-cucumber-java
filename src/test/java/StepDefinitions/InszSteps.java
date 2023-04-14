@@ -27,10 +27,10 @@ public class InszSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate insz data")
-    public void theUserFillsInTheFieldsNeededToGenerateInszData() {
+    @And("the user types {string} into the date input and {string} into the amount input insz fields")
+    public void theUserTypesIntoInputs(String date, String amount) {
 
-        System.out.println("Implementing INSZ...");
+        inszTabFragment.typeInputs(date, amount);
 
     }
 

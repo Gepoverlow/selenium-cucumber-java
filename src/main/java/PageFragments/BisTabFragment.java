@@ -30,12 +30,6 @@ public class BisTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getTabBodyDiv(){
-
-        return webDriver.findElement(tabBodyDiv);
-
-    }
-
     public WebElement getGenderInput(String yesOrNo){
 
         switch (yesOrNo){

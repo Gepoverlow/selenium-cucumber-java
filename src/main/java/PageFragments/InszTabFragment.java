@@ -10,6 +10,7 @@ public class InszTabFragment extends BaseTabFragment {
     By tabHeaderButton = By.id("/insz-header-button");
     By tabBodyDiv = By.id("collapse-1");
     By dateInput = By.id("/insz-0");
+    By amountInput = By.id("/insz-1");
     By generateButton = By.id("/insz-generate-button");
     By resultPre = By.id("insz-text");
 
@@ -28,12 +29,6 @@ public class InszTabFragment extends BaseTabFragment {
     public WebElement getTabBodyDiv(){
 
         return webDriver.findElement(tabBodyDiv);
-
-    }
-
-    public WebElement getDateInput(){
-
-        return webDriver.findElement(dateInput);
 
     }
 
@@ -59,6 +54,15 @@ public class InszTabFragment extends BaseTabFragment {
         centerTabFromElement(tabHeaderButton);
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void typeInputs(String date, String amount){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dateInput)).sendKeys(date);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 
