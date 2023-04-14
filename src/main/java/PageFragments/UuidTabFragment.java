@@ -10,6 +10,7 @@ public class UuidTabFragment extends BaseTabFragment {
     By tabHeaderButton = By.id("/uuid-header-button");
     By tabBodyDiv = By.id("collapse-9");
     By versionInput = By.id("/uuid-0");
+    By amountInput = By.id("/uuid-1");
     By generateButton = By.id("/uuid-generate-button");
     By resultPre = By.id("uuid-text");
 
@@ -23,18 +24,6 @@ public class UuidTabFragment extends BaseTabFragment {
     public WebElement getTabHeaderButton(){
 
         return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getTabBodyDiv(){
-
-        return webDriver.findElement(tabBodyDiv);
-
-    }
-
-    public WebElement getVersionInput(){
-
-        return webDriver.findElement(versionInput);
 
     }
 
@@ -60,6 +49,15 @@ public class UuidTabFragment extends BaseTabFragment {
         centerTabFromElement(tabHeaderButton);
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void typeInputs(String date, String amount){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(versionInput)).sendKeys(date);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 

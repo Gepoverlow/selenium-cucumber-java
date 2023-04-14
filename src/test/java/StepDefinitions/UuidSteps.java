@@ -28,10 +28,10 @@ public class UuidSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate uuid data")
-    public void theUserFillsInTheFieldsNeededToGenerateUuidData() {
+    @And("the user types {string} into the version input and {string} into the amount input uuid fields")
+    public void theUserTypesIntoInputs(String version, String amount) {
 
-        System.out.println("Implementing UUID...");
+        uuidTabFragment.typeInputs(version, amount);
 
     }
 
