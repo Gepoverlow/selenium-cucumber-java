@@ -71,4 +71,12 @@ public class UuidTabFragment extends BaseTabFragment {
 
     }
 
+    public boolean isResultDisplayed(){
+
+        WebElement resultPre = getResultPre();
+
+        return resultPre.isDisplayed();
+
+    }
+
 }

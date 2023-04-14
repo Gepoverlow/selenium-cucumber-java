@@ -6,6 +6,7 @@ import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class PlatesSteps {
 
@@ -42,7 +43,7 @@ public class PlatesSteps {
     @Then("the plates data result is visible")
     public void thePlatesDataResultIsVisible() {
 
-        System.out.println("Implementing PLATES...");
+        Assert.assertTrue(platesTabFragment.isResultDisplayed());
 
     }
 

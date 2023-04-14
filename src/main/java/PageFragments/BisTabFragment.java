@@ -64,9 +64,20 @@ public class BisTabFragment extends BaseTabFragment {
 
     public void clickGenerateButton(){
 
-        webDriver.findElement(generateButton).click();
+        WebElement generateButton = getGenerateButton();
+
+        clickElement(generateButton);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(resultPre));
 
         try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public boolean isResultDisplayed(){
+
+        WebElement resultPre = getResultPre();
+
+        return resultPre.isDisplayed();
 
     }
 

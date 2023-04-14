@@ -1,13 +1,12 @@
 package StepDefinitions;
 
-import PageFragments.BisTabFragment;
 import PageFragments.InszTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.sl.In;
+import org.testng.Assert;
 
 public class InszSteps {
 
@@ -44,7 +43,7 @@ public class InszSteps {
     @Then("the insz data result is visible")
     public void theInszDataResultIsVisible() {
 
-        System.out.println("Implementing INSZ...");
+        Assert.assertTrue(inszTabFragment.isResultDisplayed());
 
     }
 

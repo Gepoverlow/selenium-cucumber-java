@@ -71,4 +71,12 @@ public class PlatesTabFragment extends BaseTabFragment {
 
     }
 
+    public boolean isResultDisplayed(){
+
+        WebElement resultPre = getResultPre();
+
+        return resultPre.isDisplayed();
+
+    }
+
 }

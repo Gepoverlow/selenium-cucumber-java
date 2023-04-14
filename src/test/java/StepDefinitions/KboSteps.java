@@ -1,12 +1,12 @@
 package StepDefinitions;
 
-import PageFragments.BisTabFragment;
 import PageFragments.KboTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class KboSteps {
 
@@ -43,7 +43,7 @@ public class KboSteps {
     @Then("the kbo data result is visible")
     public void theKboDataResultIsVisible() {
 
-        System.out.println("Implementing KBO...");
+        Assert.assertTrue(kboTabFragment.isResultDisplayed());
 
     }
 

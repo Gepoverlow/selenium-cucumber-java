@@ -38,6 +38,12 @@ public class BaseTabFragment {
 
     }
 
+    public void clickElement(WebElement element) {
+
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+
+    }
+
     private void scrollToElement(WebElement element){
 
         //Doesnt work... Throws MoveTargetOutOfBoundsException: WHY??
@@ -52,19 +58,6 @@ public class BaseTabFragment {
 
         int deltaY = element.getRect().y;
         actions.scrollByAmount(0, -deltaY).perform();
-
-    }
-
-    private void clickElement(WebElement element) {
-
-        // If element is out of the viewport, it will throw ElementClickInterceptedException
-        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
-
-    }
-
-    public boolean isElementDisplayed(WebElement element){
-
-        return element.isDisplayed();
 
     }
 

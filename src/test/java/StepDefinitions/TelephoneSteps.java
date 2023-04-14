@@ -1,12 +1,12 @@
 package StepDefinitions;
 
-import PageFragments.BisTabFragment;
 import PageFragments.TelephoneTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class TelephoneSteps {
 
@@ -43,7 +43,7 @@ public class TelephoneSteps {
     @Then("the telephone data result is visible")
     public void theTelephoneDataResultIsVisible() {
 
-        System.out.println("Implementing TELEPHONE...");
+        Assert.assertTrue(telephoneTabFragment.isResultDisplayed());
 
     }
 

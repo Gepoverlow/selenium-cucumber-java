@@ -1,12 +1,12 @@
 package StepDefinitions;
 
-import PageFragments.BisTabFragment;
 import PageFragments.LoremTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class LoremSteps {
 
@@ -43,7 +43,7 @@ public class LoremSteps {
     @Then("the lorem data result is visible")
     public void theLoremDataResultIsVisible() {
 
-        System.out.println("Implementing LOREM...");
+        Assert.assertTrue(loremTabFragment.isResultDisplayed());
 
     }
 

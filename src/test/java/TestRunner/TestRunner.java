@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
         plugin = {
                 "pretty",
                 "json:target/cucumber-reports/CucumberTestReport.json"
-        }
-        //tags = "@uuid"
+        },
+        tags = "@bis"
 
 )
 public class TestRunner {

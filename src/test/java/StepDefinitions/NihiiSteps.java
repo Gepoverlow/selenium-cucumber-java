@@ -1,12 +1,12 @@
 package StepDefinitions;
 
-import PageFragments.BisTabFragment;
 import PageFragments.NihiiTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class NihiiSteps {
 
@@ -43,7 +43,7 @@ public class NihiiSteps {
     @Then("the nihii data result is visible")
     public void theNihiiDataResultIsVisible() {
 
-        System.out.println("Implementing NIHII...");
+        Assert.assertTrue(nihiiTabFragment.isResultDisplayed());
 
     }
 

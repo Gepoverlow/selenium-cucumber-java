@@ -70,4 +70,12 @@ public class KboTabFragment extends BaseTabFragment {
 
     }
 
+    public boolean isResultDisplayed(){
+
+        WebElement resultPre = getResultPre();
+
+        return resultPre.isDisplayed();
+
+    }
+
 }

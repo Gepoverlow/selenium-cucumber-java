@@ -1,12 +1,12 @@
 package StepDefinitions;
 
-import PageFragments.BisTabFragment;
 import PageFragments.PolisTabFragment;
 import PageObjects.HomePage;
 import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class PolisSteps {
 
@@ -43,7 +43,7 @@ public class PolisSteps {
     @Then("the polis data result is visible")
     public void thePolisDataResultIsVisible() {
 
-        System.out.println("Implementing POLIS...");
+        Assert.assertTrue(polisTabFragment.isResultDisplayed());
 
     }
 

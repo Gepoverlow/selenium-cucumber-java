@@ -6,6 +6,7 @@ import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class BisSteps {
 
@@ -42,7 +43,7 @@ public class BisSteps {
     @Then("the bis data result is visible")
     public void theBisDataResultIsVisible() {
 
-        System.out.println("Implementing BIS...");
+        Assert.assertTrue(bisTabFragment.isResultDisplayed());
 
     }
 

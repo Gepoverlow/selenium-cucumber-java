@@ -6,6 +6,7 @@ import Utilities.TestContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 public class UuidSteps {
 
@@ -40,10 +41,11 @@ public class UuidSteps {
         uuidTabFragment.clickGenerateButton();
 
     }
+
     @Then("the uuid data result is visible")
     public void theUuidDataResultIsVisible() {
 
-        System.out.println("Implementing UUID...");
+        Assert.assertTrue(uuidTabFragment.isResultDisplayed());
 
     }
 
