@@ -4,12 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class NihiiTabFragment extends BaseTabFragment {
 
     By tabHeaderButton = By.id("/nihii-header-button");
     By tabBodyDiv = By.id("collapse-4");
     By menuSelect = By.id("/nihii-0");
+    By versionInput = By.id("/nihii-1");
+    By amountInput = By.id("/nihii-2");
     By generateButton = By.id("/nihii-generate-button");
     By resultPre = By.id("nihii-text");
 
@@ -22,12 +25,6 @@ public class NihiiTabFragment extends BaseTabFragment {
     public WebElement getTabHeaderButton(){
 
         return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getTabBodyDiv(){
-
-        return webDriver.findElement(tabBodyDiv);
 
     }
 
@@ -59,6 +56,24 @@ public class NihiiTabFragment extends BaseTabFragment {
         centerTabFromElement(tabHeaderButton);
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void selectFromMenu(String selection){
+
+        Select select = new Select(getMenuSelect());
+        select.selectByVisibleText(selection);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void typeInputs(String version, String amount){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(versionInput)).sendKeys(version);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 

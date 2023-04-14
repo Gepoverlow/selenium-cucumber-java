@@ -27,10 +27,17 @@ public class NihiiSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate nihii data")
-    public void theUserFillsInTheFieldsNeededToGenerateNihiiData() {
+    @And("the user selects {string} from the menu of the nihii field")
+    public void theUserSelectsFromMenu(String selection) {
 
-        System.out.println("Implementing NIHII...");
+        nihiiTabFragment.selectFromMenu(selection);
+
+    }
+
+    @And("the user types {string} into the version input and {string} into the amount input nihii fields")
+    public void theUserTypesIntoInputs(String version, String amount) {
+
+        nihiiTabFragment.typeInputs(version, amount);
 
     }
 
