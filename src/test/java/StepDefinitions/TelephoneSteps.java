@@ -27,10 +27,17 @@ public class TelephoneSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate telephone data")
-    public void theUserFillsInTheFieldsNeededToGenerateTelephoneData() {
+    @And("the user selects {string} from the menu of the telephone field")
+    public void theUserSelectsFromMenu(String selection) {
 
-        System.out.println("Implementing TELEPHONE...");
+        telephoneTabFragment.selectFromMenu(selection);
+
+    }
+
+    @And("the user types {string} into the amount input telephone field")
+    public void theUserTypesIntoInput(String amount) {
+
+        telephoneTabFragment.typeInputs(amount);
 
     }
 
