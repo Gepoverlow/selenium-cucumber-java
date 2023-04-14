@@ -27,10 +27,17 @@ public class PlatesSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate plates data")
-    public void theUserFillsInTheFieldsNeededToGeneratePlatesData() {
+    @And("the user selects {string} from the menu of the plates field")
+    public void theUserSelectsFromMenu(String selection) {
 
-        System.out.println("Implementing PLATES...");
+        platesTabFragment.selectFromMenu(selection);
+
+    }
+
+    @And("the user types {string} into the amount input plates field")
+    public void theUserTypesIntoInput(String amount) {
+
+        platesTabFragment.typeInputs(amount);
 
     }
 
