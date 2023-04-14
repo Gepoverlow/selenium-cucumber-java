@@ -27,10 +27,17 @@ public class LoremSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate lorem data")
-    public void theUserFillsInTheFieldsNeededToGenerateLoremData() {
+    @And("the user clicks on the {string} input of lettersOnly lorem field")
+    public void theUserClicksOnInputs(String lettersOnly) {
 
-        System.out.println("Implementing LOREM...");
+        loremTabFragment.clickInputs(lettersOnly);
+
+    }
+
+    @And("the user types {string} into the length input lorem field")
+    public void theUserTypesIntoInputs(String length) {
+
+        loremTabFragment.typeInputs(length);
 
     }
 
