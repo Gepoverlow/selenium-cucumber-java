@@ -59,18 +59,6 @@ public class BisTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getDateInput(){
-
-        return webDriver.findElement(dateInput);
-
-    }
-
-    public WebElement getAmount(){
-
-        return webDriver.findElement(amountInput);
-
-    }
-
     public WebElement getGenerateButton(){
 
         return webDriver.findElement(generateButton);
