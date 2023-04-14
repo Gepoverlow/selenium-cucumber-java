@@ -27,10 +27,10 @@ public class KboSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate kbo data")
-    public void theUserFillsInTheFieldsNeededToGenerateKboData() {
+    @And("the user types {string} into the version input and {string} into the amount input kbo fields")
+    public void theUserTypesIntoInputs(String version, String amount) {
 
-        System.out.println("Implementing KBO...");
+        kboTabFragment.typeInputs(version, amount);
 
     }
 

@@ -10,6 +10,7 @@ public class KboTabFragment extends BaseTabFragment {
     By tabHeaderButton = By.id("/kbo-header-button");
     By tabBodyDiv = By.id("collapse-2");
     By versionInput = By.id("/kbo-0");
+    By amountInput = By.id("/kbo-1");
     By generateButton = By.id("/kbo-generate-button");
     By resultPre = By.id("kbo-text");
 
@@ -28,12 +29,6 @@ public class KboTabFragment extends BaseTabFragment {
     public WebElement getTabBodyDiv(){
 
         return webDriver.findElement(tabBodyDiv);
-
-    }
-
-    public WebElement getVersionInput(){
-
-        return webDriver.findElement(versionInput);
 
     }
 
@@ -59,6 +54,15 @@ public class KboTabFragment extends BaseTabFragment {
         centerTabFromElement(tabHeaderButton);
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void typeInputs(String version, String amount){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(versionInput)).sendKeys(version);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 
