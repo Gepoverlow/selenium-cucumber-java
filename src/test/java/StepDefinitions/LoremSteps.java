@@ -37,7 +37,7 @@ public class LoremSteps {
     @When("the user clicks on the generate lorem button")
     public void theUserClicksOnTheGenerateLoremButton() {
 
-        System.out.println("Implementing LOREM...");
+        loremTabFragment.clickGenerateButton();
 
     }
     @Then("the lorem data result is visible")

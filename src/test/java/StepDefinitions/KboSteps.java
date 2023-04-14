@@ -37,7 +37,7 @@ public class KboSteps {
     @When("the user clicks on the generate kbo button")
     public void theUserClicksOnTheGenerateKboButton() {
 
-        System.out.println("Implementing KBO...");
+        kboTabFragment.clickGenerateButton();
 
     }
     @Then("the kbo data result is visible")

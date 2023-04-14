@@ -62,4 +62,12 @@ public class PolisTabFragment extends BaseTabFragment {
 
     }
 
+    public void clickGenerateButton(){
+
+        webDriver.findElement(generateButton).click();
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
 }

@@ -36,7 +36,7 @@ public class PlatesSteps {
     @When("the user clicks on the generate plates button")
     public void theUserClicksOnTheGeneratePlatesButton() {
 
-        System.out.println("Implementing PLATES...");
+        platesTabFragment.clickGenerateButton();
 
     }
     @Then("the plates data result is visible")

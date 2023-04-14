@@ -37,7 +37,7 @@ public class TelephoneSteps {
     @When("the user clicks on the generate telephone button")
     public void theUserClicksOnTheGenerateTelephoneButton() {
 
-        System.out.println("Implementing TELEPHONE...");
+        telephoneTabFragment.clickGenerateButton();
 
     }
     @Then("the telephone data result is visible")

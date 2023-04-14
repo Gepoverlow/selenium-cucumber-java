@@ -37,7 +37,7 @@ public class RizivSteps {
     @When("the user clicks on the generate riziv button")
     public void theUserClicksOnTheGenerateRizivButton() {
 
-        System.out.println("Implementing RIZIV...");
+        rizivTabFragment.clickGenerateButton();
 
     }
     @Then("the riziv data result is visible")

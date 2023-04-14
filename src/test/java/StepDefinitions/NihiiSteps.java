@@ -37,7 +37,7 @@ public class NihiiSteps {
     @When("the user clicks on the generate nihii button")
     public void theUserClicksOnTheGenerateNihiiButton() {
 
-        System.out.println("Implementing NIHII...");
+        nihiiTabFragment.clickGenerateButton();
 
     }
     @Then("the nihii data result is visible")

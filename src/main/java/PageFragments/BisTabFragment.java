@@ -58,7 +58,15 @@ public class BisTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         centerTabFromElement(tabHeaderButton);
 
-        try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void clickGenerateButton(){
+
+        webDriver.findElement(generateButton).click();
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 

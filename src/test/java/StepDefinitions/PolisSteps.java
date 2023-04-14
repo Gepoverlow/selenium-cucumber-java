@@ -37,7 +37,7 @@ public class PolisSteps {
     @When("the user clicks on the generate polis button")
     public void theUserClicksOnTheGeneratePolisButton() {
 
-        System.out.println("Implementing POLIS...");
+        polisTabFragment.clickGenerateButton();
 
     }
     @Then("the polis data result is visible")

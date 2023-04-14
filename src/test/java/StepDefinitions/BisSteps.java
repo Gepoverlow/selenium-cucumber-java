@@ -36,7 +36,7 @@ public class BisSteps {
     @When("the user clicks on the generate bis button")
     public void theUserClicksOnTheGenerateBisButton() {
 
-        System.out.println("Implementing BIS...");
+        bisTabFragment.clickGenerateButton();
 
     }
     @Then("the bis data result is visible")

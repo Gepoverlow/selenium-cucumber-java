@@ -37,7 +37,7 @@ public class UuidSteps {
     @When("the user clicks on the generate uuid button")
     public void theUserClicksOnTheGenerateUuidButton() {
 
-        System.out.println("Implementing UUID...");
+        uuidTabFragment.clickGenerateButton();
 
     }
     @Then("the uuid data result is visible")

@@ -38,7 +38,7 @@ public class InszSteps {
     @When("the user clicks on the generate insz button")
     public void theUserClicksOnTheGenerateInszButton() {
 
-        System.out.println("Implementing INSZ...");
+        inszTabFragment.clickGenerateButton();
 
     }
     @Then("the insz data result is visible")
