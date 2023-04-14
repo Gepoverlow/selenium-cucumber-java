@@ -27,10 +27,17 @@ public class RizivSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate riziv data")
-    public void theUserFillsInTheFieldsNeededToGenerateRizivData() {
+    @And("the user selects {string} from the menu of the riziv field")
+    public void theUserSelectsFromMenu(String selection) {
 
-        System.out.println("Implementing RIZIV...");
+        rizivTabFragment.selectFromMenu(selection);
+
+    }
+
+    @And("the user types {string} into the amount input riziv field")
+    public void theUserTypesIntoInput(String amount) {
+
+        rizivTabFragment.typeInputs(amount);
 
     }
 
