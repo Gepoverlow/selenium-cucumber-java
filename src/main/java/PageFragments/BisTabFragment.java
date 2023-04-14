@@ -74,8 +74,6 @@ public class BisTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         centerTabFromElement(tabHeaderButton);
 
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
-
     }
 
     public void clickInputs(String genderKnown, String dobKnown){
@@ -83,16 +81,12 @@ public class BisTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.elementToBeClickable(getGenderInput(genderKnown))).click();
         wait.until(ExpectedConditions.elementToBeClickable(getDobInput(dobKnown))).click();
 
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
-
     }
 
     public void typeInputs(String date, String amount){
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(dateInput)).sendKeys(date);
         wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
-
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 
@@ -102,8 +96,6 @@ public class BisTabFragment extends BaseTabFragment {
 
         clickElement(generateButton);
         wait.until(ExpectedConditions.visibilityOfElementLocated(resultPre));
-
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 

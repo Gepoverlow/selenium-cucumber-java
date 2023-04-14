@@ -55,16 +55,12 @@ public class NihiiTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         centerTabFromElement(tabHeaderButton);
 
-        try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
-
     }
 
     public void selectFromMenu(String selection){
 
         Select select = new Select(getMenuSelect());
         select.selectByVisibleText(selection);
-
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 
@@ -73,15 +69,14 @@ public class NihiiTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.visibilityOfElementLocated(versionInput)).sendKeys(version);
         wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
 
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
-
     }
 
     public void clickGenerateButton(){
 
-        webDriver.findElement(generateButton).click();
+        WebElement generateButton = getGenerateButton();
 
-        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+        clickElement(generateButton);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(resultPre));
 
     }
 
