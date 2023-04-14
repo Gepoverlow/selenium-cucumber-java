@@ -27,10 +27,17 @@ public class BisSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate bis data")
-    public void theUserFillsInTheFieldsNeededToGenerateBisData() {
+    @And("the user clicks on the {string} input of isGenderKnown and {string} of the isBirthdayKnown bis field")
+    public void theUserClicksOnInputs(String genderKnown, String dobKnown) {
 
-        System.out.println("Implementing BIS...");
+        bisTabFragment.clickInputs(genderKnown, dobKnown);
+
+    }
+
+    @And("the user types {string} into the date input and {string} into the amount input bis fields")
+    public void theUserFillsInTheFieldsNeededToGenerateBisData(String date, String amount) {
+
+        bisTabFragment.typeInputs(date, amount);
 
     }
 

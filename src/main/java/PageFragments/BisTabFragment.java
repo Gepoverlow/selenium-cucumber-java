@@ -9,7 +9,12 @@ public class BisTabFragment extends BaseTabFragment {
 
     By tabHeaderButton = By.id("/bis-header-button");
     By tabBodyDiv = By.id("collapse-0");
+    By genderYesInput = By.id("/bis-yes-0");
     By genderNoInput = By.id("/bis-no-0");
+    By dobYesInput = By.id("/bis-yes-1");
+    By dobNoInput = By.id("/bis-no-1");
+    By dateInput = By.id("/bis-2");
+    By amountInput = By.id("/bis-3");
     By generateButton = By.id("/bis-generate-button");
     By resultPre = By.id("bis-text");
 
@@ -31,9 +36,38 @@ public class BisTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getGenderNoInput(){
+    public WebElement getGenderInput(String yesOrNo){
 
-        return webDriver.findElement(genderNoInput);
+        switch (yesOrNo){
+            case "no":
+                return webDriver.findElement(genderNoInput);
+            default:
+            case  "yes":
+                return webDriver.findElement(genderYesInput);
+        }
+    }
+
+    public WebElement getDobInput(String yesOrNo){
+
+        switch (yesOrNo){
+            case "no":
+                return webDriver.findElement(dobNoInput);
+            default:
+            case  "yes":
+                return webDriver.findElement(dobYesInput);
+        }
+
+    }
+
+    public WebElement getDateInput(){
+
+        return webDriver.findElement(dateInput);
+
+    }
+
+    public WebElement getAmount(){
+
+        return webDriver.findElement(amountInput);
 
     }
 
@@ -57,6 +91,24 @@ public class BisTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         centerTabFromElement(tabHeaderButton);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void clickInputs(String genderKnown, String dobKnown){
+
+        wait.until(ExpectedConditions.elementToBeClickable(getGenderInput(genderKnown))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(getDobInput(dobKnown))).click();
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void typeInputs(String date, String amount){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(dateInput)).sendKeys(date);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
 
         try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
