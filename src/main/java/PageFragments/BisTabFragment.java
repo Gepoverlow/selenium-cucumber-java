@@ -7,9 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BisTabFragment extends BaseTabFragment {
 
-    By headerButton = By.id("/bis-header-button");
+    By tabHeaderButton = By.id("/bis-header-button");
     By tabBodyDiv = By.id("collapse-0");
-    By genderYesInput = By.id("/bis-yes-0");
+    By genderNoInput = By.id("/bis-no-0");
     By generateButton = By.id("/bis-generate-button");
     By resultPre = By.id("bis-text");
 
@@ -19,9 +19,9 @@ public class BisTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getHeaderButton(){
+    public WebElement getTabHeaderButton(){
 
-        return webDriver.findElement(headerButton);
+        return webDriver.findElement(tabHeaderButton);
 
     }
 
@@ -31,9 +31,9 @@ public class BisTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getGenderYesInput(){
+    public WebElement getGenderNoInput(){
 
-        return webDriver.findElement(genderYesInput);
+        return webDriver.findElement(genderNoInput);
 
     }
 
@@ -51,13 +51,16 @@ public class BisTabFragment extends BaseTabFragment {
 
     public void openTab() {
 
-        WebElement headerButton = getHeaderButton();
+        WebElement tabHeaderButton = getTabHeaderButton();
 
-        scrollToElement(headerButton);
-        clickElement(headerButton);
+        scrollToFooter();
+        clickElement(tabHeaderButton);
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
-        scrollToElement(getGenderYesInput());
+        scrollToFooter();
+        clickElement(getGenderNoInput());
+
+        try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 

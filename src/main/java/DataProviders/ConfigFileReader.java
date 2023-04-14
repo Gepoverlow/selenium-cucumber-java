@@ -41,19 +41,10 @@ public class ConfigFileReader {
             throw new RuntimeException("url not specified in the config file.");
     }
 
-    public DriverType getBrowser()  {
+    public String getBrowser()  {
         String browserName = properties.getProperty("browser");
 
-        switch (browserName) {
-            case "chrome":
-                return DriverType.CHROME;
-            case "firefox":
-                return DriverType.FIREFOX;
-            case "safari":
-                return DriverType.SAFARI;
-            default:
-                throw new RuntimeException("Browser name key value in configuration file is not matched: " + browserName);
-        }
+        return browserName.toUpperCase();
     }
 
 }

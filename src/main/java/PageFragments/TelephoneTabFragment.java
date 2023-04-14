@@ -5,16 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class PlatesTabFragment extends BaseTabFragment {
+public class TelephoneTabFragment extends BaseTabFragment {
 
-    By tabHeaderButton = By.id("/plates-header-button");
-    By tabBodyDiv = By.id("collapse-5");
-    By menuSelect = By.id("/plates-0");
-    By generateButton = By.id("/plates-generate-button");
-    By resultPre = By.id("plates-text");
+    By tabHeaderButton = By.id("/telephone-header-button");
+    By tabBodyDiv = By.id("collapse-8");
+    By menuSelect = By.id("/telephone-0");
+    By generateButton = By.id("/telephone-generate-button");
+    By resultPre = By.id("telephone-text");
 
-
-    public PlatesTabFragment(WebDriver driver){
+    public TelephoneTabFragment(WebDriver driver){
 
         super(driver);
 
@@ -59,6 +58,7 @@ public class PlatesTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         scrollToFooter();
+        //clickElement(getGenderNoInput());
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
 

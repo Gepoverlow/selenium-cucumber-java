@@ -29,20 +29,20 @@ public class PlatesSteps {
     @And("the user fills in the fields needed to generate plates data")
     public void theUserFillsInTheFieldsNeededToGeneratePlatesData() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing PLATES...");
 
     }
 
     @When("the user clicks on the generate plates button")
     public void theUserClicksOnTheGeneratePlatesButton() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing PLATES...");
 
     }
     @Then("the plates data result is visible")
     public void thePlatesDataResultIsVisible() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing PLATES...");
 
     }
 

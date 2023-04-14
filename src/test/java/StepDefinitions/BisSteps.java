@@ -29,20 +29,20 @@ public class BisSteps {
     @And("the user fills in the fields needed to generate bis data")
     public void theUserFillsInTheFieldsNeededToGenerateBisData() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing BIS...");
 
     }
 
     @When("the user clicks on the generate bis button")
     public void theUserClicksOnTheGenerateBisButton() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing BIS...");
 
     }
     @Then("the bis data result is visible")
     public void theBisDataResultIsVisible() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing BIS...");
 
     }
 

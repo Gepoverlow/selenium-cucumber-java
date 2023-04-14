@@ -5,16 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class PlatesTabFragment extends BaseTabFragment {
+public class KboTabFragment extends BaseTabFragment {
 
-    By tabHeaderButton = By.id("/plates-header-button");
-    By tabBodyDiv = By.id("collapse-5");
-    By menuSelect = By.id("/plates-0");
-    By generateButton = By.id("/plates-generate-button");
-    By resultPre = By.id("plates-text");
+    By tabHeaderButton = By.id("/kbo-header-button");
+    By tabBodyDiv = By.id("collapse-2");
+    By versionInput = By.id("/kbo-0");
+    By generateButton = By.id("/kbo-generate-button");
+    By resultPre = By.id("kbo-text");
 
-
-    public PlatesTabFragment(WebDriver driver){
+    public KboTabFragment(WebDriver driver){
 
         super(driver);
 
@@ -32,9 +31,9 @@ public class PlatesTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getMenuSelect(){
+    public WebElement getVersionInput(){
 
-        return webDriver.findElement(menuSelect);
+        return webDriver.findElement(versionInput);
 
     }
 
@@ -59,6 +58,7 @@ public class PlatesTabFragment extends BaseTabFragment {
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
         scrollToFooter();
+        //clickElement(getGenderNoInput());
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
 

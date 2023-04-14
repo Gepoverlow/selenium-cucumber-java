@@ -30,20 +30,20 @@ public class UuidSteps {
     @And("the user fills in the fields needed to generate uuid data")
     public void theUserFillsInTheFieldsNeededToGenerateUuidData() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing UUID...");
 
     }
 
     @When("the user clicks on the generate uuid button")
     public void theUserClicksOnTheGenerateUuidButton() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing UUID...");
 
     }
     @Then("the uuid data result is visible")
     public void theUuidDataResultIsVisible() {
 
-        System.out.println("Implementing...");
+        System.out.println("Implementing UUID...");
 
     }
 

@@ -1,6 +1,5 @@
 package Managers;
 
-import Enums.DriverType;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,7 +11,7 @@ import org.openqa.selenium.safari.SafariDriver;
 public class DriverManager {
 
     private WebDriver webDriver;
-    private static DriverType driverType;
+    private static String driverType;
 
     public DriverManager() {
 
@@ -22,21 +21,21 @@ public class DriverManager {
 
     public WebDriver createDriver() {
         switch (driverType) {
-            case CHROME:
-                WebDriverManager.chromedriver().setup();
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--start-maximized");
-                webDriver = new ChromeDriver(chromeOptions);
-                break;
-            case FIREFOX:
+            case "FIREFOX":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 firefoxOptions.addArguments("--start-maximized");
                 webDriver = new FirefoxDriver(firefoxOptions);
                 break;
-            case SAFARI:
+            case "SAFARI":
                 webDriver = new SafariDriver();
                 break;
+            case "CHROME":
+            default:
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("--start-maximized");
+                webDriver = new ChromeDriver(chromeOptions);
         }
 
         return webDriver;

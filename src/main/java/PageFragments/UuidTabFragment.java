@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class UuidTabFragment extends BaseTabFragment {
 
-    By headerButton = By.id("/uuid-header-button");
+    By tabHeaderButton = By.id("/uuid-header-button");
     By tabBodyDiv = By.id("collapse-9");
     By versionInput = By.id("/uuid-0");
     By generateButton = By.id("/uuid-generate-button");
@@ -20,9 +20,9 @@ public class UuidTabFragment extends BaseTabFragment {
 
     }
 
-    public WebElement getHeaderButton(){
+    public WebElement getTabHeaderButton(){
 
-        return webDriver.findElement(headerButton);
+        return webDriver.findElement(tabHeaderButton);
 
     }
 
@@ -52,13 +52,16 @@ public class UuidTabFragment extends BaseTabFragment {
 
     public void openTab() {
 
-        WebElement headerButton = getHeaderButton();
+        WebElement tabHeaderButton = getTabHeaderButton();
 
-        scrollToElement(headerButton);
-        clickElement(headerButton);
+        scrollToFooter();
+        clickElement(tabHeaderButton);
         wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv));
         wait.until(ExpectedConditions.elementToBeClickable(getGenerateButton()));
-        scrollToElement(getVersionInput());
+        scrollToFooter();
+        clickElement(getVersionInput());
+
+        try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 
