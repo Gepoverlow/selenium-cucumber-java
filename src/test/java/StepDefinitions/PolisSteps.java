@@ -27,10 +27,17 @@ public class PolisSteps {
 
     }
 
-    @And("the user fills in the fields needed to generate polis data")
-    public void theUserFillsInTheFieldsNeededToGeneratePolisData() {
+    @And("the user selects {string} from the menu of the polis field")
+    public void theUserSelectsFromMenu(String selection) {
 
-        System.out.println("Implementing POLIS...");
+        polisTabFragment.selectFromMenu(selection);
+
+    }
+
+    @And("the user types {string} into the amount input polis field")
+    public void theUserTypesIntoInput(String amount) {
+
+        polisTabFragment.typeInputs(amount);
 
     }
 

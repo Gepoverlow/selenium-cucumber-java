@@ -4,12 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 public class PolisTabFragment extends BaseTabFragment {
 
     By tabHeaderButton = By.id("/polis-header-button");
     By tabBodyDiv = By.id("collapse-6");
     By menuSelect = By.id("/polis-0");
+    By amountInput = By.id("/polis-1");
     By generateButton = By.id("/polis-generate-button");
     By resultPre = By.id("polis-text");
 
@@ -22,12 +24,6 @@ public class PolisTabFragment extends BaseTabFragment {
     public WebElement getTabHeaderButton(){
 
         return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getTabBodyDiv(){
-
-        return webDriver.findElement(tabBodyDiv);
 
     }
 
@@ -59,6 +55,23 @@ public class PolisTabFragment extends BaseTabFragment {
         centerTabFromElement(tabHeaderButton);
 
         try{Thread.sleep(2000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void selectFromMenu(String selection){
+
+        Select select = new Select(getMenuSelect());
+        select.selectByVisibleText(selection);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
+
+    }
+
+    public void typeInputs(String amount){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(amountInput)).sendKeys(amount);
+
+        try{Thread.sleep(1000);} catch(InterruptedException e) {e.printStackTrace();}
 
     }
 
