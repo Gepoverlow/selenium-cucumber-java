@@ -36,46 +36,55 @@ public class SideNavFragment extends BaseFragment {
         return webDriver.findElement(bisMenuButton);
 
     }
+
     public WebElement getInszMenuButton(){
 
         return webDriver.findElement(inszMenuButton);
 
     }
+
     public WebElement getKboMenuButton(){
 
         return webDriver.findElement(kboMenuButton);
 
     }
+
     public WebElement getLoremMenuButton(){
 
         return webDriver.findElement(loremMenuButton);
 
     }
+
     public WebElement getNihiiMenuButton(){
 
         return webDriver.findElement(nihiiMenuButton);
 
     }
+
     public WebElement getPlatesMenuButton(){
 
         return webDriver.findElement(platesMenuButton);
 
     }
+
     public WebElement getPolisMenuButton(){
 
         return webDriver.findElement(polisMenuButton);
 
     }
+
     public WebElement getRizivMenuButton(){
 
         return webDriver.findElement(rizivMenuButton);
 
     }
+
     public WebElement getTelephoneMenuButton(){
 
         return webDriver.findElement(telephoneMenuButton);
 
     }
+
     public WebElement getUuidMenuButton(){
 
         return webDriver.findElement(uuidMenuButton);
