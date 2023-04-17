@@ -21,13 +21,19 @@ public class TitleFragment extends BaseFragment {
 
     }
 
-    public WebElement getSearchInput(){
+    public String getSearchInputValue(){
+
+        return getSearchInput().getAttribute("value");
+
+    }
+
+    private WebElement getSearchInput(){
 
         return webDriver.findElement(searchInput);
 
     }
 
-    public WebElement getTitleHeader(){
+    private WebElement getTitleHeader(){
 
         return webDriver.findElement(titleHeader);
 
@@ -42,12 +48,6 @@ public class TitleFragment extends BaseFragment {
     private boolean isTitleHeaderDisplayed(){
 
         return getTitleHeader().isDisplayed();
-
-    }
-
-    public String getSearchInputValue(){
-
-        return getSearchInput().getAttribute("value");
 
     }
 

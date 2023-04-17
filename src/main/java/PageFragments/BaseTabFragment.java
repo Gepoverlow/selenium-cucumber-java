@@ -12,14 +12,14 @@ public class BaseTabFragment extends BaseFragment {
 
     }
 
-    public void openTabFromElement(WebElement element){
+    protected void openTabFromElement(WebElement element){
 
         scrollToElement(element);
         clickElement(element);
 
     }
 
-    public void centerTabFromElement(WebElement element){
+    protected void centerTabFromElement(WebElement element){
 
         scrollToTheTopFromElement(element);
         scrollToElement(element);
