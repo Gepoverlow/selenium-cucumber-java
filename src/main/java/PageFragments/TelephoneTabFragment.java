@@ -1,15 +1,16 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-public class TelephoneTabFragment extends BaseTabFragment {
+public class TelephoneTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/telephone-header-button");
-    By tabBodyDiv = By.id("collapse-8");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/telephone\"]");
     By menuSelect = By.id("/telephone-0");
     By amountInput = By.id("/telephone-1");
     By generateButton = By.id("/telephone-generate-button");
@@ -83,6 +84,12 @@ public class TelephoneTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

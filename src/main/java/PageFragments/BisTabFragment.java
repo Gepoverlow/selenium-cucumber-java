@@ -1,14 +1,15 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class BisTabFragment extends BaseTabFragment {
+public class BisTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/bis-header-button");
-    By tabBodyDiv = By.id("collapse-0");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/bis\"]");
     By genderYesInput = By.id("/bis-yes-0");
     By genderNoInput = By.id("/bis-no-0");
     By dobYesInput = By.id("/bis-yes-1");
@@ -104,6 +105,12 @@ public class BisTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+       return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

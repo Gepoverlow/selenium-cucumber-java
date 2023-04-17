@@ -1,14 +1,15 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class KboTabFragment extends BaseTabFragment {
+public class KboTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/kbo-header-button");
-    By tabBodyDiv = By.id("collapse-2");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/kbo\"]");
     By versionInput = By.id("/kbo-0");
     By amountInput = By.id("/kbo-1");
     By generateButton = By.id("/kbo-generate-button");
@@ -76,6 +77,12 @@ public class KboTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

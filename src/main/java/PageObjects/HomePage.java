@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage {
     public NavBarFragment nav;
+    public SideNavFragment sideNav;
     public TitleFragment title;
     public BisTabFragment bis;
     public InszTabFragment insz;
@@ -22,6 +23,7 @@ public class HomePage {
     public HomePage(WebDriver driver){
 
         nav = new NavBarFragment(driver);
+        sideNav = new SideNavFragment(driver);
         title = new TitleFragment(driver);
         bis = new BisTabFragment(driver);
         insz = new InszTabFragment(driver);
@@ -111,6 +113,14 @@ public class HomePage {
         uuid.openTab();
 
         return uuid;
+
+    }
+
+    public SideNavFragment hoverOverSideNav(){
+
+        sideNav.hoverOverSideNav();
+
+        return sideNav;
 
     }
 

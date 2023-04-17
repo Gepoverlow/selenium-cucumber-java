@@ -1,15 +1,16 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-public class RizivTabFragment extends BaseTabFragment {
+public class RizivTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/riziv-header-button");
-    By tabBodyDiv = By.id("collapse-7");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/riziv\"]");
     By menuSelect = By.id("/riziv-0");
     By amountInput = By.id("/riziv-1");
     By generateButton = By.id("/riziv-generate-button");
@@ -83,6 +84,12 @@ public class RizivTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

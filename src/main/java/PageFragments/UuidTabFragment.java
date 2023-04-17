@@ -1,14 +1,15 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class UuidTabFragment extends BaseTabFragment {
+public class UuidTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/uuid-header-button");
-    By tabBodyDiv = By.id("collapse-9");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/uuid\"]");
     By versionInput = By.id("/uuid-0");
     By amountInput = By.id("/uuid-1");
     By generateButton = By.id("/uuid-generate-button");
@@ -71,6 +72,12 @@ public class UuidTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

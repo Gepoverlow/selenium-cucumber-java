@@ -1,15 +1,16 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-public class PolisTabFragment extends BaseTabFragment {
+public class PolisTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/polis-header-button");
-    By tabBodyDiv = By.id("collapse-6");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/polis\"]");
     By menuSelect = By.id("/polis-0");
     By amountInput = By.id("/polis-1");
     By generateButton = By.id("/polis-generate-button");
@@ -83,6 +84,12 @@ public class PolisTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

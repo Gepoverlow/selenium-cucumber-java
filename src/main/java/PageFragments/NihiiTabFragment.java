@@ -1,15 +1,16 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
-public class NihiiTabFragment extends BaseTabFragment {
+public class NihiiTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/nihii-header-button");
-    By tabBodyDiv = By.id("collapse-4");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/nihii\"]");
     By menuSelect = By.id("/nihii-0");
     By versionInput = By.id("/nihii-1");
     By amountInput = By.id("/nihii-2");
@@ -85,6 +86,12 @@ public class NihiiTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

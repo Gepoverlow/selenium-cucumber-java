@@ -1,14 +1,15 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class InszTabFragment extends BaseTabFragment {
+public class InszTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/insz-header-button");
-    By tabBodyDiv = By.id("collapse-1");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/insz\"]");
     By dateInput = By.id("/insz-0");
     By amountInput = By.id("/insz-1");
     By generateButton = By.id("/insz-generate-button");
@@ -76,6 +77,12 @@ public class InszTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

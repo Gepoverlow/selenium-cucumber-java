@@ -1,14 +1,15 @@
 package PageFragments;
 
+import Implementations.TabFragment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class LoremTabFragment extends BaseTabFragment {
+public class LoremTabFragment extends BaseTabFragment implements TabFragment {
 
     By tabHeaderButton = By.id("/lorem-header-button");
-    By tabBodyDiv = By.id("collapse-3");
+    By tabBodyDiv = By.cssSelector("[aria-labelledby=\"tab-/lorem\"]");
     By lettersOnlyYesInput = By.id("/lorem-yes-0");
     By lettersOnlyNoInput = By.id("/lorem-no-0");
     By lengthInput = By.id("/lorem-1");
@@ -88,6 +89,12 @@ public class LoremTabFragment extends BaseTabFragment {
         WebElement resultPre = getResultPre();
 
         return resultPre.isDisplayed();
+
+    }
+
+    public boolean isTabBodyVisible(){
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
 
     }
 

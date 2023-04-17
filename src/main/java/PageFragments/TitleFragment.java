@@ -4,23 +4,26 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class TitleFragment {
-
-    WebDriver webDriver;
-
-    By titleSearch = By.id("title");
+public class TitleFragment extends BaseFragment {
 
     By titleHeader = By.xpath("/html/body/app-root/app-home/div[1]/div[1]/h1");
+    By searchInput = By.id("search");
 
     public TitleFragment(WebDriver driver){
 
-        webDriver = driver;
+        super(driver);
 
     }
 
-    public WebElement getTitleSearch(){
+    public boolean isTitleDisplayed(){
 
-        return webDriver.findElement(titleSearch);
+        return isTitleHeaderDisplayed() && isTitleSearchDisplayed();
+
+    }
+
+    public WebElement getSearchInput(){
+
+        return webDriver.findElement(searchInput);
 
     }
 
@@ -30,21 +33,21 @@ public class TitleFragment {
 
     }
 
-    public boolean isTitleSearchDisplayed(){
+    private boolean isTitleSearchDisplayed(){
 
-        return getTitleSearch().isDisplayed();
+        return getSearchInput().isDisplayed();
 
     }
 
-    public boolean isTitleHeaderDisplayed(){
+    private boolean isTitleHeaderDisplayed(){
 
         return getTitleHeader().isDisplayed();
 
     }
 
-    public boolean isTitleDisplayed(){
+    public String getSearchInputValue(){
 
-        return isTitleHeaderDisplayed() && isTitleSearchDisplayed();
+        return getSearchInput().getAttribute("value");
 
     }
 
