@@ -40,14 +40,12 @@ public class HomePage {
 
     public BisTabFragment openBisTab() {
 
-
         bis.openTab();
 
         return bis;
 
     }
     public InszTabFragment openInszTab() {
-
 
         insz.openTab();
 
@@ -56,7 +54,6 @@ public class HomePage {
     }
     public KboTabFragment openKboTab() {
 
-
         kbo.openTab();
 
         return kbo;
@@ -64,14 +61,12 @@ public class HomePage {
     }
     public LoremTabFragment openLoremTab() {
 
-
         lorem.openTab();
 
         return lorem;
 
     }
     public NihiiTabFragment openNihiiTab() {
-
 
         nihii.openTab();
 

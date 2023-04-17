@@ -22,36 +22,6 @@ public class LoremTabFragment extends BaseTabFragment implements TabFragment {
 
     }
 
-    public WebElement getTabHeaderButton(){
-
-        return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getLettersOnlyInput(String yesOrNo){
-
-        switch (yesOrNo){
-            case "no":
-                return webDriver.findElement(lettersOnlyNoInput);
-            default:
-            case  "yes":
-                return webDriver.findElement(lettersOnlyYesInput);
-        }
-
-    }
-
-    public WebElement getGenerateButton(){
-
-        return webDriver.findElement(generateButton);
-
-    }
-
-    public WebElement getResultPre(){
-
-        return webDriver.findElement(resultPre);
-
-    }
-
     public void openTab() {
 
         WebElement tabHeaderButton = getTabHeaderButton();
@@ -95,6 +65,36 @@ public class LoremTabFragment extends BaseTabFragment implements TabFragment {
     public boolean isTabBodyVisible(){
 
         return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
+
+    }
+
+    private WebElement getTabHeaderButton(){
+
+        return webDriver.findElement(tabHeaderButton);
+
+    }
+
+    private WebElement getLettersOnlyInput(String yesOrNo){
+
+        switch (yesOrNo){
+            case "no":
+                return webDriver.findElement(lettersOnlyNoInput);
+            default:
+            case  "yes":
+                return webDriver.findElement(lettersOnlyYesInput);
+        }
+
+    }
+
+    private WebElement getGenerateButton(){
+
+        return webDriver.findElement(generateButton);
+
+    }
+
+    private WebElement getResultPre(){
+
+        return webDriver.findElement(resultPre);
 
     }
 

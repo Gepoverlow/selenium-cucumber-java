@@ -21,30 +21,6 @@ public class KboTabFragment extends BaseTabFragment implements TabFragment {
 
     }
 
-    public WebElement getTabHeaderButton(){
-
-        return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getTabBodyDiv(){
-
-        return webDriver.findElement(tabBodyDiv);
-
-    }
-
-    public WebElement getGenerateButton(){
-
-        return webDriver.findElement(generateButton);
-
-    }
-
-    public WebElement getResultPre(){
-
-        return webDriver.findElement(resultPre);
-
-    }
-
     public void openTab() {
 
         WebElement tabHeaderButton = getTabHeaderButton();
@@ -83,6 +59,24 @@ public class KboTabFragment extends BaseTabFragment implements TabFragment {
     public boolean isTabBodyVisible(){
 
         return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
+
+    }
+
+    private WebElement getTabHeaderButton(){
+
+        return webDriver.findElement(tabHeaderButton);
+
+    }
+
+    private WebElement getGenerateButton(){
+
+        return webDriver.findElement(generateButton);
+
+    }
+
+    private WebElement getResultPre(){
+
+        return webDriver.findElement(resultPre);
 
     }
 

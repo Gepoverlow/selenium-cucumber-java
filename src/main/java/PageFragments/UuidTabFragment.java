@@ -15,28 +15,9 @@ public class UuidTabFragment extends BaseTabFragment implements TabFragment {
     By generateButton = By.id("/uuid-generate-button");
     By resultPre = By.id("uuid-text");
 
-
     public UuidTabFragment(WebDriver driver){
 
         super(driver);
-
-    }
-
-    public WebElement getTabHeaderButton(){
-
-        return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getGenerateButton(){
-
-        return webDriver.findElement(generateButton);
-
-    }
-
-    public WebElement getResultPre(){
-
-        return webDriver.findElement(resultPre);
 
     }
 
@@ -78,6 +59,24 @@ public class UuidTabFragment extends BaseTabFragment implements TabFragment {
     public boolean isTabBodyVisible(){
 
         return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
+
+    }
+
+    private WebElement getTabHeaderButton(){
+
+        return webDriver.findElement(tabHeaderButton);
+
+    }
+
+    private WebElement getGenerateButton(){
+
+        return webDriver.findElement(generateButton);
+
+    }
+
+    private WebElement getResultPre(){
+
+        return webDriver.findElement(resultPre);
 
     }
 

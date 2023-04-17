@@ -25,47 +25,6 @@ public class BisTabFragment extends BaseTabFragment implements TabFragment {
 
     }
 
-    public WebElement getTabHeaderButton(){
-
-        return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getGenderInput(String yesOrNo){
-
-        switch (yesOrNo){
-            case "no":
-                return webDriver.findElement(genderNoInput);
-            default:
-            case  "yes":
-                return webDriver.findElement(genderYesInput);
-        }
-    }
-
-    public WebElement getDobInput(String yesOrNo){
-
-        switch (yesOrNo){
-            case "no":
-                return webDriver.findElement(dobNoInput);
-            default:
-            case  "yes":
-                return webDriver.findElement(dobYesInput);
-        }
-
-    }
-
-    public WebElement getGenerateButton(){
-
-        return webDriver.findElement(generateButton);
-
-    }
-
-    public WebElement getResultPre(){
-
-        return webDriver.findElement(resultPre);
-
-    }
-
     public void openTab() {
 
         WebElement tabHeaderButton = getTabHeaderButton();
@@ -110,7 +69,48 @@ public class BisTabFragment extends BaseTabFragment implements TabFragment {
 
     public boolean isTabBodyVisible(){
 
-       return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
+
+    }
+
+    private WebElement getTabHeaderButton(){
+
+        return webDriver.findElement(tabHeaderButton);
+
+    }
+
+    private WebElement getGenderInput(String yesOrNo){
+
+        switch (yesOrNo){
+            case "no":
+                return webDriver.findElement(genderNoInput);
+            default:
+            case  "yes":
+                return webDriver.findElement(genderYesInput);
+        }
+    }
+
+    private WebElement getDobInput(String yesOrNo){
+
+        switch (yesOrNo){
+            case "no":
+                return webDriver.findElement(dobNoInput);
+            default:
+            case  "yes":
+                return webDriver.findElement(dobYesInput);
+        }
+
+    }
+
+    private WebElement getGenerateButton(){
+
+        return webDriver.findElement(generateButton);
+
+    }
+
+    private WebElement getResultPre(){
+
+        return webDriver.findElement(resultPre);
 
     }
 

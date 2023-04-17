@@ -23,30 +23,6 @@ public class PlatesTabFragment extends BaseTabFragment implements TabFragment {
 
     }
 
-    public WebElement getTabHeaderButton(){
-
-        return webDriver.findElement(tabHeaderButton);
-
-    }
-
-    public WebElement getMenuSelect(){
-
-        return webDriver.findElement(menuSelect);
-
-    }
-
-    public WebElement getGenerateButton(){
-
-        return webDriver.findElement(generateButton);
-
-    }
-
-    public WebElement getResultPre(){
-
-        return webDriver.findElement(resultPre);
-
-    }
-
     public void openTab() {
 
         WebElement tabHeaderButton = getTabHeaderButton();
@@ -91,6 +67,30 @@ public class PlatesTabFragment extends BaseTabFragment implements TabFragment {
     public boolean isTabBodyVisible(){
 
         return wait.until(ExpectedConditions.visibilityOfElementLocated(tabBodyDiv)).isDisplayed();
+
+    }
+
+    private WebElement getTabHeaderButton(){
+
+        return webDriver.findElement(tabHeaderButton);
+
+    }
+
+    private WebElement getMenuSelect(){
+
+        return webDriver.findElement(menuSelect);
+
+    }
+
+    private WebElement getGenerateButton(){
+
+        return webDriver.findElement(generateButton);
+
+    }
+
+    private WebElement getResultPre(){
+
+        return webDriver.findElement(resultPre);
 
     }
 

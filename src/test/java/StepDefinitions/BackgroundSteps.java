@@ -18,7 +18,7 @@ public class BackgroundSteps {
     }
 
     @Given("the user is on the home page")
-    public void the_user_is_on_the_home_page(){
+    public void theUseIsOnTheHomePage(){
 
         Assert.assertTrue(homePage.nav.isNavBarDisplayed());
         Assert.assertTrue(homePage.title.isTitleDisplayed());
