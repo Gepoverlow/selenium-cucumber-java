@@ -19,9 +19,21 @@ Feature: Test the RIZIV generator functionality
     When the user clicks on the generate riziv button
     Then the riziv data result is visible
     Examples:
-      | selection |  amount |
-      | Dietisten |   1     |
-      | Tandarts  |   5     |
+      | selection           | amount |
+      | Arts                | 1      |
+      | Ziekenhuisapotheker | 5      |
+      | Tandarts            | 10     |
+      | Vroedvrouw          | 15     |
+      | Verpleegkundige     | 20     |
+      | Kinesitherapeut     | 25     |
+      | Logopedist          | 30     |
+      | Opticien            | 35     |
+      | Audicien            | 40     |
+      | Bandagist           | 45     |
+      | Podoloog            | 50     |
+      | Dietisten           | 55     |
+      | Orthopedist         | 60     |
+      | Apotheker           | 99     |
 
   Scenario Outline: Validate that it generates data with incorrectly filling the form
 
