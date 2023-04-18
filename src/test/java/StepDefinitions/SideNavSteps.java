@@ -29,6 +29,7 @@ public class SideNavSteps {
         sideNav = homePage.hoverOverSideNav();
 
     }
+
     @And("the user clicks on the bis menu button")
     public void theUserClicksOnTheBisMenuButton() {
 

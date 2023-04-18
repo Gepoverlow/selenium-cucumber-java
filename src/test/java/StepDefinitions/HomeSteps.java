@@ -5,12 +5,12 @@ import Utilities.TestContext;
 import io.cucumber.java.en.Given;
 import org.testng.Assert;
 
-public class BackgroundSteps {
+public class HomeSteps {
 
     TestContext testContext;
     HomePage homePage;
 
-    public BackgroundSteps(TestContext context){
+    public HomeSteps(TestContext context){
 
         testContext = context;
         homePage = testContext.getHomePage();
@@ -18,7 +18,7 @@ public class BackgroundSteps {
     }
 
     @Given("the user is on the home page")
-    public void theUseIsOnTheHomePage(){
+    public void theUserIsOnTheHomePage(){
 
         Assert.assertTrue(homePage.nav.isNavBarDisplayed());
         Assert.assertTrue(homePage.title.isTitleDisplayed());
