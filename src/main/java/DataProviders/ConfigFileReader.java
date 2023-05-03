@@ -5,7 +5,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
-import Enums.DriverType;
 
 public class ConfigFileReader {
 
@@ -41,10 +40,10 @@ public class ConfigFileReader {
             throw new RuntimeException("url not specified in the config file.");
     }
 
-    public String getBrowser()  {
-        String browserName = properties.getProperty("browser");
+    public String getDriverType() {
+        String driverType = properties.getProperty("driverType");
 
-        return browserName.toUpperCase();
+        return driverType.toUpperCase();
     }
 
 }

@@ -1,12 +1,18 @@
 package Managers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.cdimascio.dotenv.Dotenv;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class DriverManager {
 
@@ -15,12 +21,19 @@ public class DriverManager {
 
     public DriverManager() {
 
-        driverType = FileReaderManager.getInstance().getConfigFileReader().getBrowser();
+        driverType = FileReaderManager.getInstance().getConfigFileReader().getDriverType();
 
     }
 
-    public WebDriver createDriver() {
+    public WebDriver createDriver() throws MalformedURLException {
         switch (driverType) {
+            case "REMOTE":
+                Dotenv dotenv = Dotenv.load();
+                String user = dotenv.get("user");
+                String key = dotenv.get("key");
+                MutableCapabilities capabilities = new MutableCapabilities();
+                webDriver = new RemoteWebDriver(new URL("https://" + user + ":" + key + "@hub-cloud.browserstack.com/wd/hub/"), capabilities);
+                break;
             case "FIREFOX":
                 WebDriverManager.firefoxdriver().setup();
                 FirefoxOptions firefoxOptions = new FirefoxOptions();

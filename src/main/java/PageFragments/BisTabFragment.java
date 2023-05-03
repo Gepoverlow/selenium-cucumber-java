@@ -54,6 +54,7 @@ public class BisTabFragment extends BaseTabFragment implements TabFragment {
 
         WebElement generateButton = getGenerateButton();
 
+        centerTabFromElement(generateButton);
         clickElement(generateButton);
         wait.until(ExpectedConditions.visibilityOfElementLocated(resultPre));
 

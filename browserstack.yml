@@ -1,0 +1,24 @@
+userName: gepe_GL5A8f
+accessKey: gQYbdz2tdPppmGTxat8u
+framework: cucumber-testng
+platforms:
+  - deviceName: Samsung Galaxy S23 Ultra
+    osVersion: 13.0
+    browserName: chrome
+    deviceOrientation: portrait
+  - deviceName: iPhone 11
+    osVersion: 13
+    browserName: safari
+    deviceOrientation: portrait
+  - deviceName: Xiaomi Redmi Note 8
+    osVersion: 9.0
+    browserName: chrome
+    deviceOrientation: portrait
+parallelsPerPlatform: 1
+browserstackLocal: true
+buildName: bstack-demo
+buildIdentifier: ${BUILD_NUMBER}
+projectName: BrowserStack Sample
+debug: true
+networkLogs: true
+consoleLogs: info

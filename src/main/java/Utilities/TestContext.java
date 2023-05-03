@@ -5,6 +5,8 @@ import Managers.PageObjectManager;
 import PageObjects.HomePage;
 import org.openqa.selenium.WebDriver;
 
+import java.net.MalformedURLException;
+
 public class TestContext {
 
     private final DriverManager driverManager;
@@ -24,7 +26,7 @@ public class TestContext {
 
     }
 
-    public WebDriver getDriver(){
+    public WebDriver getDriver() throws MalformedURLException {
 
         if (driverManager.getWebDriver() == null) driverManager.setWebDriver(driverManager.createDriver());
         return driverManager.getWebDriver();
@@ -33,7 +35,7 @@ public class TestContext {
 
     public void closeDriver(){
 
-        driverManager.getWebDriver().close();
+        //driverManager.getWebDriver().close();
         driverManager.getWebDriver().quit();
 
     }

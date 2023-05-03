@@ -7,6 +7,7 @@ import io.cucumber.java.Before;
 
 
 import org.openqa.selenium.WebDriver;
+import java.net.MalformedURLException;
 
 
 public class Hooks {
@@ -21,7 +22,7 @@ public class Hooks {
     }
 
     @Before
-    public void setUp(){
+    public void setUp() throws MalformedURLException {
 
         webDriver = testContext.getDriver();
         webDriver.get(FileReaderManager.getInstance().getConfigFileReader().getUrl());
