@@ -13,6 +13,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
 
 public class DriverManager {
 
@@ -32,6 +33,13 @@ public class DriverManager {
                 String user = dotenv.get("user");
                 String key = dotenv.get("key");
                 MutableCapabilities capabilities = new MutableCapabilities();
+                capabilities.setCapability("browserName", "chrome");
+                HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+                browserstackOptions.put("osVersion", "12.0");
+                browserstackOptions.put("deviceName", "Samsung Galaxy S21");
+                browserstackOptions.put("projectName", "DataGenProject");
+                capabilities.setCapability("bstack:options", browserstackOptions);
+
                 webDriver = new RemoteWebDriver(new URL("https://" + user + ":" + key + "@hub-cloud.browserstack.com/wd/hub/"), capabilities);
                 break;
             case "FIREFOX":
